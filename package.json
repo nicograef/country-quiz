@@ -8,6 +8,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
     "lint": "prettier-standard --lint src/**/*.js",
     "prebuild": "rimraf dist",
     "build": "rollup --config"
