@@ -5,21 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Country Quiz Demo</title>
+    <style>
+      #code-wrapper {
+        /* max-height: 600px; */
+        /* overflow: scroll; */
+        font-family: monospace;
+        font-size: 18px;
+        padding: 15px;
+        background: #222;
+        color: #ddd;
+      }
+    </style>
   </head>
   <body>
     <h1>Demo of Country Quiz</h1>
     <button onclick="printNewQuiz()">New Quiz</button>
-    <div id="content" style="background: #eee"></div>
+    <button onclick="printNewQuestion()">New Question</button>
+    <br />
+    <div id="code-wrapper">
+      <pre id="content">Click one of the buttons</pre>
+    </div>
     <script src="../dist/bundle.umd.js"></script>
     <script>
-      var contentWrapper = document.getElementById('content')
-      function printNewQuiz() {
-        var quiz = CountryQuiz.newQuiz()
-        contentWrapper.innerText = JSON.stringify(quiz, null, 4)
+      const contentWrapper = document.getElementById('content')
+
+      const printNewQuiz = () => {
+        const quiz = CountryQuiz.newQuiz()
+        console.log(quiz)
+        contentWrapper.innerHTML = JSON.stringify(quiz, null, 2)
       }
-      document.addEventListener('DOMContentLoaded', function() {
-        printNewQuiz()
-      })
+
+      const printNewQuestion = () => {
+        const question = CountryQuiz.newRandomQuestion()
+        console.log(question)
+        contentWrapper.innerHTML = JSON.stringify(question, null, 2)
+      }
+      // document.addEventListener('DOMContentLoaded', function() {
+      //   printNewQuiz()
+      // })
     </script>
   </body>
 </html>
