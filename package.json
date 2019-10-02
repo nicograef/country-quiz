@@ -1,6 +1,6 @@
 {
   "name": "country-quiz",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Create quiz games with questions about countries, flags and capitals.",
   "main": "src/index.js",
   "scripts": {
