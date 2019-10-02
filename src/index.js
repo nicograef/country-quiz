@@ -26,7 +26,11 @@ export const newRandomQuestion = createRandomQuestion
  * @param {number} numberOfOptions Number of options (i.e. possible answers) per question.
  * @returns {object} Quiz object with the selected quiz mode and an array of questions. If quiz mode is 'mixed' then the quiz mode for every question in the quiz is randomly selected.
  */
-function createQuiz(quizMode = 'flag-to-country', numberOfQuestions = 5, numberOfOptions = 4) {
+function createQuiz (
+  quizMode = 'flag-to-country',
+  numberOfQuestions = 5,
+  numberOfOptions = 4
+) {
   const newQuiz = {
     quizMode,
     questions: []
@@ -48,7 +52,7 @@ function createQuiz(quizMode = 'flag-to-country', numberOfQuestions = 5, numberO
  * @param {number} numberOfOptions Number of options (i.e. possible answers) for this question.
  * @returns {object} Question object with the question, the answers and the options.
  */
-function createQuestion(quizMode = 'flag-to-country', numberOfOptions = 4) {
+function createQuestion (quizMode = 'flag-to-country', numberOfOptions = 4) {
   const [from, to] = quizMode.split('-to-')
   const randomCountries = getRandomCountries(numberOfOptions)
   const solutionIndex = Math.floor(Math.random() * randomCountries.length)
@@ -69,7 +73,7 @@ function createQuestion(quizMode = 'flag-to-country', numberOfOptions = 4) {
  * @param {number} numberOfOptions Number of options (i.e. possible answers) for this question.
  * @returns {object} Question object with the quiz mode, question, the answer and the options.
  */
-function createRandomQuestion(numberOfOptions = 4) {
+function createRandomQuestion (numberOfOptions = 4) {
   const randomQuizMode = getRandomQuizMode()
   const randomQuestion = createQuestion(randomQuizMode, numberOfOptions)
   randomQuestion.quizMode = randomQuizMode
@@ -78,7 +82,7 @@ function createRandomQuestion(numberOfOptions = 4) {
 
 /* Private Functions */
 
-function getRandomCountries(numberOfCountries) {
+function getRandomCountries (numberOfCountries) {
   const randomCountries = []
   const indices = []
   let index
@@ -92,7 +96,7 @@ function getRandomCountries(numberOfCountries) {
   return randomCountries
 }
 
-function getRandomQuizMode() {
+function getRandomQuizMode () {
   const randomIndex = Math.floor(Math.random() * quizModes.length)
   return quizModes[randomIndex]
 }
