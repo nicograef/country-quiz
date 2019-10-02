@@ -2,7 +2,7 @@
   "name": "country-quiz",
   "version": "0.4.1",
   "description": "Create quiz games with questions about countries, flags and capitals.",
-  "main": "src/index.js",
+  "main": "dist/bundle.cjs.js",
   "scripts": {
     "test": "jest",
     "lint": "prettier-standard --lint src/**/*.js",

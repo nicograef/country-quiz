@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Country Quiz Demo</title>
+  </head>
+  <body>
+    <h1>Demo of Country Quiz</h1>
+    <button onclick="printNewQuiz()">New Quiz</button>
+    <div id="content" style="background: #eee"></div>
+    <script src="../dist/bundle.umd.js"></script>
+    <script>
+      var contentWrapper = document.getElementById('content')
+      function printNewQuiz() {
+        var quiz = CountryQuiz.newQuiz()
+        contentWrapper.innerText = JSON.stringify(quiz, null, 4)
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        printNewQuiz()
+      })
+    </script>
+  </body>
+</html>
