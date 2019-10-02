@@ -4,6 +4,7 @@
   "description": "Create quiz games with questions about countries, flags and capitals.",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
+  "sideEffects": false,
   "scripts": {
     "test": "jest",
     "lint": "prettier-standard --lint src/**/*.js",
