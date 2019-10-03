@@ -2,7 +2,7 @@
 
   <h1>Country Quiz</h1>
 
-[![Build Status](https://travis-ci.org/nicograef/country-quiz.svg?branch=master)](https://travis-ci.org/nicograef/country-quiz) [![Coverage Status](https://coveralls.io/repos/github/nicograef/country-quiz/badge.svg?branch=master)](https://coveralls.io/github/nicograef/country-quiz?branch=master) ![npm](https://img.shields.io/npm/v/country-quiz) ![NPM](https://img.shields.io/npm/l/country-quiz) ![npm bundle size](https://img.shields.io/bundlephobia/min/country-quiz?label=size) ![GitHub last commit](https://img.shields.io/github/last-commit/nicograef/country-quiz)
+[![Build Status](https://travis-ci.org/nicograef/country-quiz.svg?branch=master)](https://travis-ci.org/nicograef/country-quiz) [![Coverage Status](https://coveralls.io/repos/github/nicograef/country-quiz/badge.svg?branch=master)](https://coveralls.io/github/nicograef/country-quiz?branch=master) [![npm](https://img.shields.io/npm/v/country-quiz)](https://npmjs.com/package/country-quiz) [![License](https://img.shields.io/github/license/nicograef/country-quiz)](https://github.com/nicograef/country-quiz/blob/master/LICENSE) [![npm bundle size](https://img.shields.io/bundlephobia/min/country-quiz?label=size)](https://npmjs.com/package/country-quiz) [![GitHub last commit](https://img.shields.io/github/last-commit/nicograef/country-quiz)](https://github.com/nicograef/country-quiz/commits/master)
 
 </div>
 
@@ -20,9 +20,13 @@ yarn add country-quiz
 Then import into your project
 
 ```javascript
-const { newQuiz, newQuestion, newRandomQuestion } = require('country-quiz')
-// or
+/* Common JS */
+const countryQuiz = require('country-quiz')
+const quiz = countryQuiz.newQuiz()
+
+/* ES Module */
 import { newQuiz, newQuestion, newRandomQuestion } from 'country-quiz'
+const quiz = newQuiz()
 ```
 
 ## Usage
@@ -130,7 +134,7 @@ const randomQuestion = newRandomQuestion(5)
 | --------------- | ------ | ------- | ------------------------------------------------------------ |
 | numberOfOptions | number | 4       | Number of options (i.e. possible answers) for this question. |
 
-## Misc
+---
 
 **Quiz Modes**
 
@@ -144,3 +148,7 @@ mixed is only possible for newQuiz().
 - country-to-capital
 - capital-to-flag
 - capital-to-country
+
+## Copyright
+
+Data and Flag SVGs are from the REST Countries Project: https://restcountries.eu
