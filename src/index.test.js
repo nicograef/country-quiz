@@ -10,12 +10,12 @@ describe('newQuestion', () => {
 
   it('should have 4 options by default', () => {
     const question = newQuestion()
-    expect(question.options.length).toBe(4)
+    expect(question.options).toHaveLength(4)
   })
 
   it('should accept a numberOfOptions argument', () => {
     const question = newQuestion(undefined, 2)
-    expect(question.options.length).toBe(2)
+    expect(question.options).toHaveLength(2)
   })
 
   it('should accept a quizMode argument ', () => {
@@ -36,7 +36,7 @@ describe('newRandomQuestion', () => {
 
   it('should accept a numberOfOptions argument', () => {
     const question = newRandomQuestion(2)
-    expect(question.options.length).toBe(2)
+    expect(question.options).toHaveLength(2)
   })
 })
 
@@ -48,7 +48,7 @@ describe('newQuiz', () => {
 
   it('should have 5 questions by default', () => {
     const quiz = newQuiz()
-    expect(quiz.questions.length).toBe(5)
+    expect(quiz.questions).toHaveLength(5)
   })
 
   it('should accept a quizMode argument', () => {
@@ -58,12 +58,12 @@ describe('newQuiz', () => {
 
   it('should accept a numberOfQuestions argument', () => {
     const quiz = newQuiz(undefined, 8)
-    expect(quiz.questions.length).toBe(8)
+    expect(quiz.questions).toHaveLength(8)
   })
 
   it('should accept a numberOfOptions argument', () => {
     const quiz = newQuiz(undefined, undefined, 2)
-    expect(quiz.questions[0].options.length).toBe(2)
+    expect(quiz.questions[0].options).toHaveLength(2)
   })
 
   it('should use random questions in mixed mode', () => {
