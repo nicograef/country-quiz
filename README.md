@@ -2,7 +2,7 @@
 
   <h1>Country Quiz</h1>
 
-![npm](https://img.shields.io/npm/v/country-quiz) ![NPM](https://img.shields.io/npm/l/country-quiz) ![npm bundle size](https://img.shields.io/bundlephobia/min/country-quiz?label=size) ![GitHub last commit](https://img.shields.io/github/last-commit/nicograef/country-quiz)
+[![Build Status](https://travis-ci.org/nicograef/country-quiz.svg?branch=master)](https://travis-ci.org/nicograef/country-quiz) [![Coverage Status](https://coveralls.io/repos/github/nicograef/country-quiz/badge.svg?branch=master)](https://coveralls.io/github/nicograef/country-quiz?branch=master) ![npm](https://img.shields.io/npm/v/country-quiz) ![NPM](https://img.shields.io/npm/l/country-quiz) ![npm bundle size](https://img.shields.io/bundlephobia/min/country-quiz?label=size) ![GitHub last commit](https://img.shields.io/github/last-commit/nicograef/country-quiz)
 
 </div>
 
@@ -13,6 +13,8 @@ Data, Quizzes and Questions are accessed offline from a data file (data original
 
 ```sh
 npm i country-quiz
+# or
+yarn add country-quiz
 ```
 
 Then import into your project
