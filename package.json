@@ -1,6 +1,6 @@
 {
   "name": "country-quiz",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Create quiz games with questions about countries, flags and capitals.",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
@@ -12,7 +12,8 @@
     "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "lint": "prettier-standard --lint src/**/*.js",
     "prebuild": "rimraf dist",
-    "build": "rollup --config"
+    "build": "rollup --config",
+    "postbuild": "cp dist/bundle.umd.js docs/"
   },
   "husky": {
     "hooks": {
@@ -42,7 +43,7 @@
   "bugs": {
     "url": "https://github.com/nicograef/country-quiz/issues"
   },
-  "homepage": "https://github.com/nicograef/country-quiz#readme",
+  "homepage": "https://nicograef.github.io/country-quiz",
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
