@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>index.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createQuestion">createQuestion</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createQuiz">createQuiz</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createRandomQuestion">createRandomQuestion</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*!
+ * country-quiz
+ * Copyright(c) 2019 Nico Gräf
+ * MIT Licensed
+ */
+
+'use strict'
+
+import { countries, quizModes } from './data'
+
+/**
+ * Module exports.
+ * @public
+ */
+export const newQuiz = createQuiz
+export const newQuestion = createQuestion
+export const newRandomQuestion = createRandomQuestion
+
+/* Public Functions */
+
+/**
+ * Creates a new quiz with random questions.
+ *
+ * @param {string} quizMode Selects quiz mode (i.e. types of questions and options).  Possible values: flag-to-country, flag-to-capital, country-to-flag, country-to-capital, capital-to-flag, capital-to-country or mixed.
+ * @param {number} numberOfQuestions Number of questions in this quiz.
+ * @param {number} numberOfOptions Number of options (i.e. possible answers) per question.
+ * @returns {object} Quiz object with the selected quiz mode and an array of questions. If quiz mode is 'mixed' then the quiz mode for every question in the quiz is randomly selected.
+ */
+function createQuiz (
+  quizMode = 'flag-to-country',
+  numberOfQuestions = 5,
+  numberOfOptions = 4
+) {
+  const newQuiz = {
+    quizMode,
+    questions: []
+  }
+  for (let i = 0; i &lt; numberOfQuestions; i++) {
+    const newQuestion =
+      quizMode === 'mixed'
+        ? createRandomQuestion(numberOfOptions)
+        : createQuestion(quizMode, numberOfOptions)
+    newQuiz.questions.push(newQuestion)
+  }
+  return newQuiz
+}
+
+/**
+ * Creates a single question for the selected quiz mode.
+ *
+ * @param {string} quizMode Selects quiz mode (i.e. types of questions and options). Possible values: flag-to-country, flag-to-capital, country-to-flag, country-to-capital, capital-to-flag or capital-to-country.
+ * @param {number} numberOfOptions Number of options (i.e. possible answers) for this question.
+ * @returns {object} Question object with the question, the answers and the options.
+ */
+function createQuestion (quizMode = 'flag-to-country', numberOfOptions = 4) {
+  const [from, to] = quizMode.split('-to-')
+  const randomCountries = getRandomCountries(numberOfOptions)
+  const solutionIndex = Math.floor(Math.random() * randomCountries.length)
+  const solution = randomCountries[solutionIndex]
+
+  const newQuestion = {
+    question: solution[from],
+    answer: solution[to],
+    options: randomCountries.map(c => c[to])
+  }
+
+  return newQuestion
+}
+
+/**
+ * Creates a single question with random quiz mode.
+ *
+ * @param {number} numberOfOptions Number of options (i.e. possible answers) for this question.
+ * @returns {object} Question object with the quiz mode, question, the answer and the options.
+ */
+function createRandomQuestion (numberOfOptions = 4) {
+  const randomQuizMode = getRandomQuizMode()
+  const randomQuestion = createQuestion(randomQuizMode, numberOfOptions)
+  randomQuestion.quizMode = randomQuizMode
+  return randomQuestion
+}
+
+/* Private Functions */
+
+function getRandomCountries (numberOfCountries) {
+  const randomCountries = []
+  const indices = []
+  let index
+  for (let i = 0; i &lt; numberOfCountries; i++) {
+    index = Math.floor(Math.random() * countries.length)
+    if (!indices.includes(index)) {
+      indices.push(index)
+      randomCountries.push(countries[index])
+    } else i--
+  }
+  return randomCountries
+}
+
+function getRandomQuizMode () {
+  const randomIndex = Math.floor(Math.random() * quizModes.length)
+  return quizModes[randomIndex]
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Thu Oct 17 2019 11:28:45 GMT+0200 (Central European Summer Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

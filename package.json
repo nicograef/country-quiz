@@ -16,7 +16,8 @@
     "lint": "prettier-standard --lint src/**/*.js",
     "prebuild": "rimraf dist",
     "build": "rollup --config",
-    "postbuild": "cp dist/bundle.umd.js docs/",
+    "postbuild": "cp dist/bundle.umd.js demo/",
+    "docs": "jsdoc src/index.js -d docs/ -t node_modules/minami",
     "prepublishOnly": "npm run lint && npm run test && npm run build"
   },
   "husky": {
@@ -55,7 +56,9 @@
     "coveralls": "^3.0.6",
     "husky": "^3.0.8",
     "jest": "^24.9.0",
+    "jsdoc": "^3.6.3",
     "lint-staged": "^9.4.1",
+    "minami": "^1.2.3",
     "prettier-standard": "^15.0.1",
     "rimraf": "^3.0.0",
     "rollup": "^1.22.0",
