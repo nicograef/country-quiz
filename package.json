@@ -1,6 +1,6 @@
 {
   "name": "country-quiz",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Create quiz games with questions about countries, flags and capitals.",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
