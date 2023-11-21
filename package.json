@@ -59,6 +59,7 @@
     "jsdoc": "^3.6.3",
     "lint-staged": "^9.4.1",
     "minami": "^1.2.3",
+    "node-fetch": "^3.3.2",
     "prettier-standard": "^15.0.1",
     "rimraf": "^3.0.0",
     "rollup": "^1.22.0",

@@ -152,3 +152,12 @@ mixed is only possible for newQuiz().
 ## Copyright
 
 Data and Flag SVGs are from the REST Countries Project: https://restcountries.eu
+
+---
+
+## Development
+
+To update the country data run `node update-data.mjs`.
+This fetches fresh data from `https://restcountries.com/v3.1/all?fields=name,capital,flags` and converts it to the librarie's format.
+The result is saved to a `new-data.json` file.
+The content of this file needs to be copied to `src/data.js` into the `const data = [...]` variable.
